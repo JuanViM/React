@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test de mi primer dcomponente PrimeraApp Debe mostrar <PrimeraApp /> correctamente 1`] = `
+<Fragment>
+  <h1>
+    hola soy goku
+  </h1>
+  <p>
+    Soy un subtitulo
+  </p>
+</Fragment>
+`;
+
+exports[`Test de mi primer dcomponente PrimeraApp debe de mostrar el subtitulo enviado por props 1`] = `
+<Fragment>
+  <h1>
+    hola soy goku
+  </h1>
+  <p>
+    Soy un subtitulo
+  </p>
+</Fragment>
+`;
