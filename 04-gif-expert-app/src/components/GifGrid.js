@@ -2,6 +2,7 @@ import React from 'react';
 import { useFetchGifs } from '../hooks/useFetchGifs';
 // import { getGift } from '../helpers/getGifts';
 import { GifGridItem } from './GifGridItem';
+import Arca from 'prop-types';
 
 
 export const GifGrid = ({category}) => {
@@ -30,4 +31,8 @@ export const GifGrid = ({category}) => {
     </div>
     </>
   )
+}
+
+GifGrid.propTypes = {
+  category: Arca.string.isRequired,
 }

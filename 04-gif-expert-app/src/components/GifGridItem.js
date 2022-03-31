@@ -1,8 +1,8 @@
 import React from 'react';
+import Arca from "prop-types";
+export const GifGridItem = ( {title,url} ) => {
 
-export const GifGridItem = ( {id,title,url} ) => {
-
-    console.log({id,title,url});
+    
   return (
     <div className="card animate__animated animate__fadeIn">
     <img src={ url } alt = {title} />
@@ -10,3 +10,12 @@ export const GifGridItem = ( {id,title,url} ) => {
     </div>
   )
 }
+
+
+GifGridItem.protTypes={
+title:Arca.string.isRequired,
+url:Arca.string.isRequired
+}
+
+
+

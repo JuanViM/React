@@ -2,11 +2,11 @@ import { useState } from "react";
 import { AddCategory } from "./components/AddCategory";
 import { GifGrid } from "./components/GifGrid";
 
-export const GifExpertApp = () => {
+export const GifExpertApp = ({defaultCategories = [] }) => {
 
   //  const categories = ['Dragon ball','One Piece','One puch'];
 
-  const [categories, setCategories] = useState(['Dragon ball']);  
+  const [categories, setCategories] = useState(defaultCategories);  
 
   //de este modo añadimos un nuevo elemento al array por el final
 //   const handleAdd = () =>{
