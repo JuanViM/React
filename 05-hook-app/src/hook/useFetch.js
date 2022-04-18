@@ -42,23 +42,21 @@ export const useFetch = (url) => {
                 //la data va a ser igual a la data que recibimos del endpoint
 
                 //vamos a hacer mas lento el setstate mediante un time out
-                setTimeout(() => {
-
-                    //aqui le decimos que si el componente esta montado isMounted.current es true
-                    //entonces que haga los setState que quiera en caso contrario que sea false y 
-                    //este desmontado que no haga nada
-                    if(isMounted.current){
-                        setState({
-                            loading: false,
-                            error: null,
-                            data,
-                        });
-                    }else{
-                        console.log("setState no se llamo");
-                    }
-                    
-                }, 2000);
+                if(isMounted.current){
+                    setState({
+                        loading: false,
+                        error: null,
+                        data,
+                    });
+                }
                 
+            })
+            .catch(()=>{
+                setState({
+                    data:null,
+                    loading:false,
+                    error:"no se pudo cargar la info"
+                })
             })
 
     }, [url])
