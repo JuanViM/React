@@ -1,13 +1,14 @@
 import { types } from "../types/types";
 
 
+
 //los reducer reciben dos cosas,nuestro state y el action
-export const authReducer = (state = {}, action) => {
+export const authReducer = (state = {}, action ) => {
   
 
     switch (action.type) {
         case types.login:
-            return{
+            return {
                 uid:action.payload.uid,
                 name: action.payload.displayName
             }
