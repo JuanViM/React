@@ -1,7 +1,7 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { startLoginEmailPassword } from '../../actions/auth';
+import { startGoogleLogin, startLoginEmailPassword } from '../../actions/auth';
 import { useForm } from '../../hooks/UseForm';
 
 export const LoginScreen = () => {
@@ -11,6 +11,8 @@ export const LoginScreen = () => {
 
     const dispatch = useDispatch();
 
+    const {loading} = useSelector(state => state.ui);
+    
     const [ formValues,handleInputChange] = useForm({
         email: "nando@gmail.com",
         password:"123456"
@@ -21,6 +23,10 @@ export const LoginScreen = () => {
     const handleLogin= (e) => {
         e.preventDefault(); //con esto editamos la propagacion del formulario
         dispatch(startLoginEmailPassword(email, password));
+    }
+
+    const handleGoogleLogin = () => {
+        dispatch( startGoogleLogin());
     }
      
 
@@ -54,6 +60,7 @@ export const LoginScreen = () => {
                 
                     type='submit'
                     className='btn btn-primary btn-block'
+                    disabled={loading}
                 >
                     Login
                 </button>
@@ -63,6 +70,7 @@ export const LoginScreen = () => {
                     <p>Login con red social</p>
                     <div
                         className="google-btn"
+                        onClick={handleGoogleLogin}
                     >
                         <div className="google-icon-wrapper">
                             <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
